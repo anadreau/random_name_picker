@@ -1,25 +1,29 @@
 import 'dart:core';
 import 'dart:io';
 
-List<String> userList = [];
+var userList = List();
 
-void main(){
+void main() {
+  //UsernameStore().addUser();
+  //UsernameStore().addUser();
+  UsernameStore().showUser();
+}
+
+class UsernameStore {
+
+ //var userList = List();
+
+
+  void showUser(){
+  print(userList);
+}
+
+  void addUser(){
+
   print('Add name');
   String name = stdin.readLineSync();
-  usernameStorage(name);
-}
-
-
-void usernameStorage(name){
-  //something
-  addUser(name);
-  print(userList);
-  print(userList.length);
-}
-
-void addUser(name){
   userList.add(name);
 }
 
 
-
+}

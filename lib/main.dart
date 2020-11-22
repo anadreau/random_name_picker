@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'components/username_storage.dart';
 
 void main() {
   runApp(MyApp());
-}
+  }
 
 class MyApp extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -49,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    UsernameStore().addUser();
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -97,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              UsernameStore().showUser(),
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
