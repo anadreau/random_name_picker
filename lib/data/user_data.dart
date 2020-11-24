@@ -18,4 +18,8 @@ class UserData extends ChangeNotifier {
     _users.clear();
     notifyListeners();
   }
+
+  String showUser() {
+    return _users.toString();
+  }
 }
