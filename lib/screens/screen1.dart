@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:random_name_picker/data/user_data.dart';
+import 'package:random_name_picker/data/user_file.dart';
 
 class Screen1 extends StatelessWidget {
   @override
@@ -12,7 +13,6 @@ class Screen1 extends StatelessWidget {
           child: Column(
             children: [
               Text('UserData'),
-              Text(''),
             ],
           ),
         ),
