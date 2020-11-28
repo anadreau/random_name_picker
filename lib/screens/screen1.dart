@@ -33,7 +33,17 @@ class Screen1 extends StatelessWidget {
                 onPressed: () {
                   addName(file, 'Jason');
                 },
-              )
+              ),
+              RaisedButton(
+                onPressed: () {
+                  readMap();
+                },
+              ),
+              RaisedButton(
+                onPressed: () {
+                  chooseWinner();
+                },
+              ),
             ],
           ),
         ),
