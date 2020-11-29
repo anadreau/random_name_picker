@@ -6,6 +6,7 @@ import 'package:random_name_picker/main.dart';
 //import 'package:path_provider/path_provider.dart';
 
 Map<int, String> userMap = Map<int, String>();
+String winnerName = 'test';
 
 main(List<String> arguments) {
   Directory dir = Directory.current;
@@ -23,7 +24,7 @@ void writeFile([File file]) {
 
   RandomAccessFile raf = file.openSync(mode: FileMode.write);
 
-  raf.writeStringSync('Hello!\r\nThis is a test.');
+  raf.writeStringSync('Monthly Lottery Names');
   raf.flushSync();
   raf.closeSync();
 }
@@ -52,7 +53,7 @@ void addName(File file, String name) {
 }
 
 void mapFile(File file, value) {
-  int i;
+  //int i;
   userMap.putIfAbsent(userMap.length + 1, () => value);
 }
 
@@ -64,6 +65,7 @@ void readMap() {
 void chooseWinner() {
   //choosing random winner from map
   int value = numberGenerator(1, userMap.length + 1);
+  winnerName = userMap[value];
   print(userMap[value]);
 }
 

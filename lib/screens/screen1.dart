@@ -16,30 +16,38 @@ class Screen1 extends StatelessWidget {
         backgroundColor: Colors.orange,
         body: Center(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('UserData'),
+              Text('' + winnerName),
               RaisedButton(
+                child: Text('Create file'),
                 onPressed: () {
                   writeFile(file);
                   print(dir.path);
                 },
               ),
               RaisedButton(
+                child: Text('Read file'),
                 onPressed: () {
                   readFile(file);
                 },
               ),
               RaisedButton(
+                child: Text('Add name'),
                 onPressed: () {
                   addName(file, 'Jason');
                 },
               ),
               RaisedButton(
+                child: Text('Read Map'),
                 onPressed: () {
                   readMap();
                 },
               ),
               RaisedButton(
+                child: Text('Choose Winner'),
                 onPressed: () {
                   chooseWinner();
                 },
