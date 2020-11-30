@@ -17,32 +17,34 @@ class UserModel extends ChangeNotifier {
   }
 
   void readFile(File file) {
+    //reads the file and maps values to userMap
+
     if (!file.existsSync()) {
       print('file not found!');
       return;
     }
 
-    print('Reading string...');
-    // print(file.readAsStringSync());
-
-    // print('Reading bytes.....');
+    print('Reading file...');
+    // TODO: Attempt to start readFile from line 1 instead of 0
     List values = file.readAsLinesSync();
     values.forEach((value) => print(value));
     values.forEach((value) => mapFile(file, value));
   }
 
+  void mapFile(File file, value) {
+    //converts file to map
+    userMap.putIfAbsent(userMap.length + 1, () => value);
+    notifyListeners();
+  }
+
   void addName(File file, String name) {
+    //Add name to file
+    // TODO: add way to get input from user and then right to file
     RandomAccessFile raf = file.openSync(mode: FileMode.append);
 
     raf.writeStringSync('\n' + name);
     raf.flushSync();
     raf.closeSync();
-    notifyListeners();
-  }
-
-  void mapFile(File file, value) {
-    //int i;
-    userMap.putIfAbsent(userMap.length + 1, () => value);
     notifyListeners();
   }
 
@@ -67,14 +69,3 @@ class UserModel extends ChangeNotifier {
     notifyListeners();
   }
 }
-
-// main(List<String> arguments) {
-//   Directory dir = Directory.current;
-//
-//   print(dir.path);
-//
-//   File file = File(dir.path + '/filetest.txt');
-//
-//   writeFile(file);
-//   readFile(file);
-// }
