@@ -7,13 +7,6 @@ class BackgroundVideo extends StatefulWidget {
 }
 
 class _BackgroundVideoState extends State<BackgroundVideo> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class _BackgroundVideoState extends State<BackgroundVideo> {
   VideoPlayerController _controller;
 
   @override
