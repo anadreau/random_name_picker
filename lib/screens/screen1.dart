@@ -17,11 +17,7 @@ class Screen1 extends StatelessWidget {
         backgroundColor: Colors.orange,
         body: Row(
           children: [
-            Center(
-              child: Image(
-                image: Image.file('/images/JB.png'),
-              ),
-            ),
+            Center(child: Image.asset('assets/images/JB.png')),
             Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

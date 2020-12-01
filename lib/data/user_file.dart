@@ -62,7 +62,7 @@ class UserModel extends ChangeNotifier {
     //needs map to choose name so will give error if map is not created first
 
     int value = numberGenerator(1, userMap.length + 1);
-    winnerName = userMap[value];
+    winnerName = userMap[value].toString();
 
     print(winnerName);
     print(userMap[value]);
