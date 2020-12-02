@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 import 'package:random_name_picker/data/user_file.dart';
+import 'package:random_name_picker/screens/screen2.dart';
 import 'screens/screen1.dart';
 import 'data/user_file.dart';
 
@@ -16,12 +17,15 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => UserModel(),
       child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: Screen1(),
-      ),
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => Screen1(),
+            '/second': (context) => Screen2(),
+          }),
     );
   }
 }

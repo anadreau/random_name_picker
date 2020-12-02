@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:random_name_picker/data/user_file.dart';
+import 'package:random_name_picker/screens/screen2.dart';
 
 Directory dir = Directory.current;
 File file = File(dir.path + '/filetest.txt');
@@ -55,6 +56,12 @@ class Screen1 extends StatelessWidget {
                   RaisedButton(
                     child: Text('Choose Winner'),
                     onPressed: () => test.chooseWinner(),
+                  ),
+                  RaisedButton(
+                    child: Text('Video Test'),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/second');
+                    },
                   ),
                 ],
               ),
