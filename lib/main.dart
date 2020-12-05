@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:path/path.dart';
+import 'package:random_name_picker/screens/screen1.dart';
+import 'package:random_name_picker/screens/screen2.dart';
 import 'package:provider/provider.dart';
 import 'package:random_name_picker/data/user_file.dart';
 import 'package:random_name_picker/screens/screen2.dart';
@@ -21,10 +22,10 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          initialRoute: '/',
+          initialRoute: Screen1.id,
           routes: {
-            '/': (context) => Screen1(),
-            '/second': (context) => Screen2(),
+            Screen1.id: (context) => Screen1(),
+            Screen2.id: (context) => Screen2(),
           }),
     );
   }

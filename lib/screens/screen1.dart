@@ -5,9 +5,10 @@ import 'package:random_name_picker/data/user_file.dart';
 import 'package:random_name_picker/screens/screen2.dart';
 
 Directory dir = Directory.current;
-File file = File(dir.path + '/filetest.txt');
+File file = File(dir.path + '/Goon_Lottery.txt');
 
 class Screen1 extends StatelessWidget {
+  static const String id = 'home';
   @override
   Widget build(BuildContext context) {
     final test = Provider.of<UserModel>(context);
@@ -24,14 +25,17 @@ class Screen1 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('UserData'),
+                  Text('Goonscription Winner'),
                   Text(test.winnerName.toString()),
-                  Text(test.userMap.toString()),
+                  Text(
+                    test.userMap.toString(),
+                    softWrap: true,
+                  ),
                   //Text(test.winnerName),
                   RaisedButton(
                     child: Text('Create file'),
                     onPressed: () {
-                      test.writeFile();
+                      test.writeFile(file);
                       print(dir.path);
                     },
                   ),
@@ -60,7 +64,7 @@ class Screen1 extends StatelessWidget {
                   RaisedButton(
                     child: Text('Video Test'),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/second');
+                      Navigator.pushNamed(context, Screen2.id);
                     },
                   ),
                 ],

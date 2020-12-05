@@ -8,10 +8,9 @@ class UserModel extends ChangeNotifier {
 
   void writeFile([File file]) {
     //Append, Write
-
     RandomAccessFile raf = file.openSync(mode: FileMode.write);
 
-    raf.writeStringSync('Monthly Lottery Names');
+    //raf.writeStringSync('Monthly Lottery Names');
     raf.flushSync();
     raf.closeSync();
   }
@@ -42,7 +41,7 @@ class UserModel extends ChangeNotifier {
     // TODO: add way to get input from user and then right to file
     RandomAccessFile raf = file.openSync(mode: FileMode.append);
 
-    raf.writeStringSync('\n' + name);
+    raf.writeStringSync(name + '\n');
     raf.flushSync();
     raf.closeSync();
     notifyListeners();
