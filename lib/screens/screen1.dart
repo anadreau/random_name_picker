@@ -11,8 +11,8 @@ class Screen1 extends StatelessWidget {
   static const String id = 'home';
   @override
   Widget build(BuildContext context) {
-    final test = Provider.of<UserModel>(context);
-    // final test = UserModel();
+    final lotteryList = Provider.of<UserModel>(context);
+    // final lotteryList = UserModel();
 
     return SafeArea(
       child: Scaffold(
@@ -26,40 +26,41 @@ class Screen1 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('Goonscription Winner'),
-                  Text(test.winnerName.toString()),
+                  Text(lotteryList.winnerName.toString()),
                   Text(
-                    test.userMap.toString(),
+                    lotteryList.userMap.toString(),
                     softWrap: true,
                   ),
                   //Text(test.winnerName),
                   RaisedButton(
                     child: Text('Create file'),
                     onPressed: () {
-                      test.writeFile(file);
+                      lotteryList.writeFile(file);
                       print(dir.path);
                     },
                   ),
                   RaisedButton(
                     child: Text('Read file'),
                     onPressed: () {
-                      test.readFile(file);
+                      lotteryList.readFile(file);
                     },
                   ),
                   RaisedButton(
                     child: Text('Add name'),
                     onPressed: () {
-                      test.addName(file, 'Jason');
+                      //TextField();
+                      lotteryList.addName(file, 'Jason');
                     },
                   ),
                   RaisedButton(
                     child: Text('Clear List'),
                     onPressed: () {
-                      test.clearMap();
+                      lotteryList.clearMap();
                     },
                   ),
                   RaisedButton(
                     child: Text('Choose Winner'),
-                    onPressed: () => test.chooseWinner(),
+                    onPressed: () => lotteryList.chooseWinner(),
                   ),
                   RaisedButton(
                     child: Text('Video Test'),

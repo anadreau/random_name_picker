@@ -3,7 +3,6 @@ import 'package:random_name_picker/screens/screen1.dart';
 import 'package:random_name_picker/screens/screen2.dart';
 import 'package:provider/provider.dart';
 import 'package:random_name_picker/data/user_file.dart';
-import 'package:random_name_picker/screens/screen2.dart';
 import 'screens/screen1.dart';
 import 'data/user_file.dart';
 
@@ -18,10 +17,11 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => UserModel(),
       child: MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Random Name Picker',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
+          debugShowCheckedModeBanner: false,
           initialRoute: Screen1.id,
           routes: {
             Screen1.id: (context) => Screen1(),
