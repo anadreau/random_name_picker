@@ -10,6 +10,7 @@ File file = File(dir.path + '/Goon_Lottery.txt');
 
 class Screen1 extends StatelessWidget {
   static const String id = 'home';
+  final FocusNode nameFocusNode = FocusNode();
 
   final _controller = TextEditingController();
   final String addName = '';
@@ -65,10 +66,12 @@ class Screen1 extends StatelessWidget {
                         prefixIcon: Icon(Icons.add),
                       ),
                       controller: _controller,
+                      focusNode: nameFocusNode,
                       onSubmitted: (String addName) {
                         addName = _controller.text;
                         lotteryList.addName(file, addName);
                         _controller.clear();
+                        nameFocusNode.requestFocus();
                       },
                     ),
                   ),
