@@ -45,6 +45,10 @@ class Screen1 extends StatelessWidget {
                       lotteryList.readFile(file);
                     },
                   ),
+                  SizedBox(
+                    child: TextField(decoration: InputDecoration(hintText: 'Add Name'),),
+                  width: 100.0,
+                  height: 20.0,),
                   RaisedButton(
                     child: Text('Add name'),
                     onPressed: () {
