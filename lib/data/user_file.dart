@@ -4,7 +4,7 @@ import 'package:random_name_picker/components/randomizer.dart';
 
 class UserModel extends ChangeNotifier {
   Map<int, String> userMap = Map<int, String>();
-  String winnerName;
+  String winnerName = 'The winner is...';
 
   void writeFile([File file]) {
     //Append, Write
