@@ -6,8 +6,6 @@ import 'package:random_name_picker/data/user_file.dart';
 import 'screens/screen1.dart';
 import 'data/user_file.dart';
 
-//TODO: replace icon when John sends door at Windows: windows/runner/resources/app_icon.ico
-
 void main() {
   runApp(MyApp());
 }
