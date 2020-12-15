@@ -53,6 +53,7 @@ class UserModel extends ChangeNotifier {
     userMap.clear();
     print(userMap);
     print(userMap.length);
+    winnerName = 'The winner is...';
     notifyListeners();
   }
 

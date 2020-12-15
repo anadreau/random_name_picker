@@ -1,8 +1,9 @@
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+//import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 import 'package:random_name_picker/data/user_file.dart';
-//import 'package:random_name_picker/screens/screen2.dart';
 import 'package:random_name_picker/components/constants.dart';
 
 Directory dir = Directory.current;
@@ -23,6 +24,45 @@ class Screen1 extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[700],
+        drawer: Drawer(
+          child: Container(
+            color: Colors.grey[700],
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                DrawerHeader(
+                  child: Text('Goon Settings'),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[700],
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/JB.png')),
+                  ),
+                ),
+                ListTile(
+                  tileColor: kGoonRed,
+                  title: Text(
+                    'Create file',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  onTap: () {
+                    lotteryList.writeFile(file);
+                    print(dir.path);
+                  },
+                ),
+                ListTile(
+                  tileColor: kGoonBlue,
+                  title: Text(
+                    'Clear list',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  onTap: () {
+                    lotteryList.clearMap();
+                  },
+                ),
+              ],
+            ),
+          ),
+        ),
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -41,19 +81,20 @@ class Screen1 extends StatelessWidget {
                   children: [
                     Text(
                       'Goonscription Winner',
-                      style: kGoonBlue,
+                      style: kGoonBlueStyle,
                     ),
-                    Text(lotteryList.winnerName.toString(), style: kGoonRed),
-                    Text(lotteryList.userMap.toString(),
-                        softWrap: true, style: kGoonBlue),
+                    Text(lotteryList.winnerName.toString(),
+                        style: kGoonRedStyle),
+                    // Text(lotteryList.userMap.toString(),
+                    //     softWrap: true, style: kGoonBlue),
                     //Text(test.winnerName),
-                    RaisedButton(
-                      child: Text('Create file'),
-                      onPressed: () {
-                        lotteryList.writeFile(file);
-                        print(dir.path);
-                      },
-                    ),
+                    // RaisedButton(
+                    //   child: Text('Create file'),
+                    //   onPressed: () {
+                    //     lotteryList.writeFile(file);
+                    //     print(dir.path);
+                    //   },
+                    // ),
 
                     Container(
                       height: 40.0,
@@ -91,22 +132,24 @@ class Screen1 extends StatelessWidget {
                     //     _controller.clear();
                     //   },
                     // ),
+                    // RaisedButton(
+                    //   child: Text('Read file'),
+                    //   onPressed: () {
+                    //     lotteryList.readFile(file);
+                    //   },
+                    // ),
+                    // RaisedButton(
+                    //   child: Text('Clear List'),
+                    //   onPressed: () {
+                    //     lotteryList.clearMap();
+                    //   },
+                    // ),
                     RaisedButton(
-                      child: Text('Read file'),
-                      onPressed: () {
-                        lotteryList.readFile(file);
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('Clear List'),
-                      onPressed: () {
-                        lotteryList.clearMap();
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('Choose Winner'),
-                      onPressed: () => lotteryList.chooseWinner(),
-                    ),
+                        child: Text('Choose Winner'),
+                        onPressed: () {
+                          lotteryList.readFile(file);
+                          lotteryList.chooseWinner();
+                        }),
                     // RaisedButton(
                     //   child: Text('Video Test'),
                     //   onPressed: () {
