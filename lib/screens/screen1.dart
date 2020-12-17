@@ -57,7 +57,7 @@ class Screen1 extends StatelessWidget {
                 ListTile(
                   tileColor: kGoonBlue,
                   title: Text(
-                    'Clear list',
+                    'Reset',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                   onTap: () {
@@ -100,9 +100,15 @@ class Screen1 extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment(-1.2, -.1),
               image: AssetImage('assets/images/JB.png'),
             ),
+          ),
+          foregroundDecoration: BoxDecoration(
+            image: DecorationImage(
+                alignment: Alignment(.2, -.8),
+                scale: 3.0,
+                image: AssetImage('assets/images/chat.png')),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
