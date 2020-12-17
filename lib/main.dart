@@ -4,6 +4,7 @@ import 'package:random_name_picker/screens/screen2.dart';
 import 'package:provider/provider.dart';
 import 'package:random_name_picker/data/user_file.dart';
 import 'screens/screen1.dart';
+import 'package:random_name_picker/screens/screen3.dart';
 import 'data/user_file.dart';
 
 void main() {
@@ -27,10 +28,11 @@ class _MyAppState extends State<MyApp> {
             primarySwatch: Colors.blue,
           ),
           debugShowCheckedModeBanner: false,
-          initialRoute: Screen1.id,
+          initialRoute: Screen3.id,
           routes: {
             Screen1.id: (context) => Screen1(),
             Screen2.id: (context) => Screen2(),
+            Screen3.id: (context) => Screen3(),
           }),
     );
   }
