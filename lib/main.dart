@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:random_name_picker/screens/screen1.dart';
 import 'package:random_name_picker/screens/screen2.dart';
+import 'package:random_name_picker/screens/screen4.dart';
 import 'package:provider/provider.dart';
 import 'package:random_name_picker/data/user_file.dart';
 import 'screens/screen1.dart';
@@ -33,6 +34,7 @@ class _MyAppState extends State<MyApp> {
             Screen1.id: (context) => Screen1(),
             Screen2.id: (context) => Screen2(),
             Screen3.id: (context) => Screen3(),
+            Screen4.id: (context) => Screen4(),
           }),
     );
   }

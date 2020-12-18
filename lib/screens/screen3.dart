@@ -38,6 +38,7 @@ class MyDelegate extends MultiChildLayoutDelegate {
             size), // This just says that the child cannot be bigger than the whole layout.
       );
       // No need to position this child if we want to have it at Offset(0, 0).
+      positionChild(1, Offset(100, 100));
     }
 
     if (hasChild(2)) {
@@ -54,11 +55,9 @@ class MyDelegate extends MultiChildLayoutDelegate {
       positionChild(
         2,
         Offset(
-          leadingSize.width,
-          leadingSize
-              .height, // This will place child 2 to the right of child 1.
-          // size.height / 2 -
-          //     secondSize.height / 2, // Centers the second child vertically.
+          leadingSize.width, // This will place child 2 to the right of child 1.
+          size.height / 2 -
+              secondSize.height / 2, // Centers the second child vertically.
         ),
       );
     }
