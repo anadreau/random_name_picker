@@ -29,11 +29,11 @@ class _MyAppState extends State<MyApp> {
             primarySwatch: Colors.blue,
           ),
           debugShowCheckedModeBanner: false,
-          initialRoute: Screen3.id,
+          initialRoute: Screen4.id,
           routes: {
             Screen1.id: (context) => Screen1(),
             Screen2.id: (context) => Screen2(),
-            Screen3.id: (context) => Screen3(),
+            //Screen3.id: (context) => Screen3(),
             Screen4.id: (context) => Screen4(),
           }),
     );
