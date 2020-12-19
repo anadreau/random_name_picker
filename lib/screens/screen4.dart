@@ -129,7 +129,18 @@ class Screen4 extends StatelessWidget {
                         // Text(lotteryList.winnerName.toString(),
                         //     style: kGoonRedStyle),
                         RaisedButton(
-                            child: Text('Choose Winner'),
+                            child: Text(
+                              'Choose Winner',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            elevation: 10.0,
+                            color: kGoonBlue,
+                            splashColor: kGoonRed,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
                             onPressed: () {
                               lotteryList.readFile(file);
                               lotteryList.chooseWinner();
