@@ -116,38 +116,32 @@ class Screen4 extends StatelessWidget {
             ),
             LayoutId(
               id: 2, // You will need to refer to that id when laying out your children.
+              //mainAxisAlignment: MainAxisAlignment.center,
               child: Column(
-                //mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Center(
-                    child: Column(
-                      children: [
-                        // Text(
-                        //   'Goonscription Winner',
-                        //   style: kGoonBlueStyle,
-                        // ),
-                        // Text(lotteryList.winnerName.toString(),
-                        //     style: kGoonRedStyle),
-                        RaisedButton(
-                            child: Text(
-                              'Choose Winner',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            elevation: 10.0,
-                            color: kGoonBlue,
-                            splashColor: kGoonRed,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)),
-                            onPressed: () {
-                              lotteryList.readFile(file);
-                              lotteryList.chooseWinner();
-                            }),
-                      ],
-                    ),
-                  ),
+                  // Text(
+                  //   'Goonscription Winner',
+                  //   style: kGoonBlueStyle,
+                  // ),
+                  // Text(lotteryList.winnerName.toString(),
+                  //     style: kGoonRedStyle),
+                  RaisedButton(
+                      child: Text(
+                        'Choose Winner',
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      elevation: 10.0,
+                      color: kGoonBlue,
+                      splashColor: kGoonRed,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      onPressed: () {
+                        lotteryList.readFile(file);
+                        lotteryList.chooseWinner();
+                      }),
                 ],
               ),
             ),
@@ -199,7 +193,7 @@ class MyDelegate extends MultiChildLayoutDelegate {
       positionChild(
         2,
         Offset(
-          100, 400, // Centers the second child vertically.
+          leadingSize.width / 1.06, 400, // Centers the second child vertically.
         ),
       );
     }
@@ -217,7 +211,7 @@ class MyDelegate extends MultiChildLayoutDelegate {
       positionChild(
         3,
         Offset(
-          300, 100, // Centers the second child vertically.
+          leadingSize.width / 1.5, 100, // Centers the second child vertically.
         ),
       );
     }
@@ -235,7 +229,7 @@ class MyDelegate extends MultiChildLayoutDelegate {
       positionChild(
         4,
         Offset(
-          410, 160, // Centers the second child vertically.
+          leadingSize.width / 1.06, 160, // Centers the second child vertically.
         ),
       );
     }
