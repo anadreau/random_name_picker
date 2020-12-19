@@ -122,12 +122,12 @@ class Screen4 extends StatelessWidget {
                   Center(
                     child: Column(
                       children: [
-                        Text(
-                          'Goonscription Winner',
-                          style: kGoonBlueStyle,
-                        ),
-                        Text(lotteryList.winnerName.toString(),
-                            style: kGoonRedStyle),
+                        // Text(
+                        //   'Goonscription Winner',
+                        //   style: kGoonBlueStyle,
+                        // ),
+                        // Text(lotteryList.winnerName.toString(),
+                        //     style: kGoonRedStyle),
                         RaisedButton(
                             child: Text('Choose Winner'),
                             onPressed: () {
@@ -140,6 +140,13 @@ class Screen4 extends StatelessWidget {
                 ],
               ),
             ),
+            LayoutId(
+              id: 4,
+              child: Text(
+                lotteryList.winnerName.toString(),
+                style: kGoonRedStyle,
+              ),
+            )
           ],
         ),
       ),
@@ -200,6 +207,24 @@ class MyDelegate extends MultiChildLayoutDelegate {
         3,
         Offset(
           300, 100, // Centers the second child vertically.
+        ),
+      );
+    }
+    if (hasChild(4)) {
+      final thirdSize = layoutChild(
+        4,
+        BoxConstraints(
+          // This is exactly the same as above, but this can be anything you specify.
+          // BoxConstraints.loose is a shortcut to this.
+          maxWidth: size.width,
+          maxHeight: size.height,
+        ),
+      );
+
+      positionChild(
+        4,
+        Offset(
+          410, 160, // Centers the second child vertically.
         ),
       );
     }
