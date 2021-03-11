@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'screen2.dart';
 import 'package:random_name_picker/data/user_file.dart';
 import 'package:random_name_picker/components/constants.dart';
 
@@ -109,43 +110,71 @@ class Screen4 extends StatelessWidget {
               child: Stack(
                 children: <Widget>[
                   Container(
-                    height: 600,
-                    width: 400,
+                    height: 800,
+                    width: 500,
                   ),
-                  Image(
-                    image: AssetImage('assets/images/chat.png'),
-                    height: 200,
-                    width: 400,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image(
+                      image: AssetImage('assets/images/chat.png'),
+                      height: 350,
+                      width: 400,
+                    ),
                   ),
                   Positioned(
-                    top: 70,
-                    left: 110,
-                    child: Text(
-                      lotteryList.winnerName.toString(),
-                      style: kGoonRedStyle,
+                    top: 100,
+                    left: 50,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(lotteryList.winnerName.toString(),
+                          style: TextStyle(
+                              color: Color(0xFFd80707),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 45.0)),
                     ),
                   ),
                   Positioned(
                     top: 400,
                     right: 150,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                         child: Text(
                           'Choose Winner',
                           style: TextStyle(
-                            fontSize: 18.0,
+                            fontSize: 30.0,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        elevation: 10.0,
-                        color: kGoonBlue,
-                        splashColor: kGoonRed,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
+                        style: ElevatedButton.styleFrom(
+                          primary: kGoonBlue,
+                          onPrimary: kGoonRed,
+                        ),
+                        //elevation: 10.0,
+                        //color: kGoonBlue,
+                        //splashColor: kGoonRed,
+                        //shape: RoundedRectangleBorder(
+                        //borderRadius: BorderRadius.circular(20)),
                         onPressed: () {
                           lotteryList.readFile(file);
                           lotteryList.chooseWinner();
                         }),
                   ),
+                  // Positioned(
+                  //   top: 450,
+                  //   right: 150,
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(20.0),
+                  //     child: ElevatedButton(
+                  //       child: Text('Video Test'),
+                  //       style: ElevatedButton.styleFrom(
+                  //         primary: kGoonBlue,
+                  //         onPrimary: kGoonRed,
+                  //       ),
+                  //       onPressed: () {
+                  //         Navigator.pushNamed(context, Screen2.id);
+                  //       },
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ), // This is the widget you actually want to show.
             ),

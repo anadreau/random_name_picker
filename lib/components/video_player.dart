@@ -12,13 +12,14 @@ class _BackgroundVideoState extends State<BackgroundVideo> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset('assets/videos/LUUP.mkv')
-      ..initialize().then((_) {
-        _controller.play();
-        _controller.setLooping(true);
+    _controller =
+        VideoPlayerController.asset('assets/videos/Amonguscodecover-1.mp4')
+          ..initialize().then((_) {
+            _controller.play();
+            _controller.setLooping(true);
 
-        setState(() {});
-      });
+            setState(() {});
+          });
   }
 
   @override
