@@ -118,19 +118,23 @@ class Screen4 extends StatelessWidget {
                     child: Image(
                       image: AssetImage('assets/images/chat.png'),
                       height: 350,
-                      width: 400,
+                      width: 500,
                     ),
                   ),
                   Positioned(
                     top: 100,
-                    left: 50,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(lotteryList.winnerName.toString(),
-                          style: TextStyle(
-                              color: Color(0xFFd80707),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 45.0)),
+                    left: 100,
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(lotteryList.winnerName.toString(),
+                            style: TextStyle(
+                                color: Color(0xFFd80707),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 42.0)),
+                      ),
                     ),
                   ),
                   Positioned(
