@@ -6,16 +6,92 @@ import 'package:provider/provider.dart';
 import 'package:random_name_picker/data/user_file.dart';
 import 'package:random_name_picker/components/constants.dart';
 
+Directory dir = Directory.current;
+File file = File(dir.path + '/Goon_Lottery.txt');
+
 class Screen3 extends StatelessWidget {
   static const String id = 'Test';
-  // final FocusNode nameFocusNode = FocusNode();
+  final FocusNode nameFocusNode = FocusNode();
 
-  // final _controller = TextEditingController();
-  // final String addName = '';
+  final _controller = TextEditingController();
+  final String addName = '';
 
   @override
   Widget build(BuildContext context) {
+    final lotteryList = Provider.of<UserModel>(context);
+
     return Scaffold(
+      drawer: Drawer(
+        child: Container(
+          color: Colors.grey[700],
+          child: ListView(
+            //padding: EdgeInsets.zero,
+            padding: EdgeInsets.all(12.0),
+            children: <Widget>[
+              DrawerHeader(
+                child: Text(
+                  'Goon Settings',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.grey[700],
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/JB.png')),
+                ),
+              ),
+              ListTile(
+                tileColor: kGoonRed,
+                title: Text(
+                  'Create file',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                onTap: () {
+                  lotteryList.writeFile(file);
+                  print(dir.path);
+                },
+              ),
+              Divider(),
+              ListTile(
+                tileColor: kGoonBlue,
+                title: Text(
+                  'Reset',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                onTap: () {
+                  lotteryList.clearMap();
+                },
+              ),
+              Divider(),
+              Container(
+                height: 40.0,
+                width: 150.0,
+                child: TextField(
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.transparent),
+                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                    hintText: 'Add Name',
+                    filled: true,
+                    fillColor: Colors.grey[200],
+                    prefixIcon: Icon(Icons.add),
+                  ),
+                  controller: _controller,
+                  focusNode: nameFocusNode,
+                  onSubmitted: (String addName) {
+                    addName = _controller.text;
+                    lotteryList.addName(file, addName);
+                    _controller.clear();
+                    nameFocusNode.requestFocus();
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
@@ -29,9 +105,6 @@ class Screen3 extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: Container(
-                      // color: Colors.black,
-                      // width: 250,
-                      // height: 800,
                       child: Image.asset(
                         'assets/images/JB.png',
                       ),
@@ -69,8 +142,8 @@ class Screen3 extends StatelessWidget {
                       //shape: RoundedRectangleBorder(
                       //borderRadius: BorderRadius.circular(20)),
                       onPressed: () {
-                        // lotteryList.readFile(file);
-                        // lotteryList.chooseWinner();
+                        lotteryList.readFile(file);
+                        lotteryList.chooseWinner();
                       }),
                 ],
               ),
