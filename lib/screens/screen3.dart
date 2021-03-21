@@ -116,13 +116,20 @@ class Screen3 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image(
-                    image: AssetImage('assets/images/chat.png'),
-                    height: 350,
-                    width: 300,
-                  ),
+                  Stack(alignment: Alignment.center, children: <Widget>[
+                    Image(
+                      image: AssetImage('assets/images/chat.png'),
+                      height: 350,
+                      width: 300,
+                    ),
+                    Text(lotteryList.winnerName.toString(),
+                        style: TextStyle(
+                            color: Color(0xFFd80707),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 38.0)),
+                  ]),
                   SizedBox(
-                    height: 200.0,
+                    height: 150.0,
                   ),
                   ElevatedButton(
                       child: Text(
