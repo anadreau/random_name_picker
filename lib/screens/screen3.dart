@@ -1,8 +1,9 @@
 import 'dart:io';
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:path/path.dart';
 import 'package:provider/provider.dart';
+import 'package:random_name_picker/components/rive_stuff.dart';
 import 'package:random_name_picker/data/user_file.dart';
 import 'package:random_name_picker/components/constants.dart';
 
@@ -100,59 +101,79 @@ class Screen3 extends StatelessWidget {
           // width: 1000,
           child: Row(
             children: [
-              Column(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      child: Image.asset(
-                        'assets/images/JB.png',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Stack(alignment: Alignment.center, children: <Widget>[
-                    Image(
-                      image: AssetImage('assets/images/chat.png'),
-                      height: 350,
-                      width: 300,
-                    ),
-                    Text(lotteryList.winnerName.toString(),
-                        style: TextStyle(
-                            color: Color(0xFFd80707),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 38.0)),
-                  ]),
-                  SizedBox(
-                    height: 150.0,
-                  ),
-                  ElevatedButton(
-                      child: Text(
-                        'Choose Winner',
-                        style: TextStyle(
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
+              Expanded(
+                flex: 1,
+                child: Column(
+                  children: [
+                    Expanded(
+                      // flex: 1,
+                      child: Container(
+                        child: Image.asset(
+                          'assets/images/JB.png',
                         ),
                       ),
-                      style: ElevatedButton.styleFrom(
-                        primary: kGoonBlue,
-                        onPrimary: kGoonRed,
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Stack(alignment: Alignment.center, children: <Widget>[
+                      Image(
+                        image: AssetImage('assets/images/chat.png'),
+                        height: 350,
+                        width: 300,
                       ),
-                      //elevation: 10.0,
-                      //color: kGoonBlue,
-                      //splashColor: kGoonRed,
-                      //shape: RoundedRectangleBorder(
-                      //borderRadius: BorderRadius.circular(20)),
-                      onPressed: () {
-                        lotteryList.readFile(file);
-                        lotteryList.chooseWinner();
-                      }),
-                ],
+                      Text(lotteryList.winnerName.toString(),
+                          style: TextStyle(
+                              color: Color(0xFFd80707),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 38.0)),
+                    ]),
+                    SizedBox(
+                      height: 150.0,
+                    ),
+                    ElevatedButton(
+                        child: Text(
+                          'Choose Winner',
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: kGoonBlue,
+                          onPrimary: kGoonRed,
+                        ),
+                        //elevation: 10.0,
+                        //color: kGoonBlue,
+                        //splashColor: kGoonRed,
+                        //shape: RoundedRectangleBorder(
+                        //borderRadius: BorderRadius.circular(20)),
+                        onPressed: () {
+                          lotteryList.readFile(file);
+                          lotteryList.chooseWinner();
+                        }),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(
+                  children: [
+                    Center(
+                      child: SizedBox(
+                        height: 400,
+                        width: 400,
+                        child: RiveStuff(),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

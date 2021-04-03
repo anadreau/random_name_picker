@@ -7,6 +7,7 @@ import 'package:random_name_picker/data/user_file.dart';
 import 'screens/screen1.dart';
 import 'package:random_name_picker/screens/screen3.dart';
 import 'data/user_file.dart';
+import 'package:random_name_picker/components/rive_stuff.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,6 +36,7 @@ class _MyAppState extends State<MyApp> {
             Screen2.id: (context) => Screen2(),
             Screen3.id: (context) => Screen3(),
             Screen4.id: (context) => Screen4(),
+            RiveStuff.id: (context) => RiveStuff(),
           }),
     );
   }

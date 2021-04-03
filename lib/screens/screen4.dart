@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'screen2.dart';
+//import 'screen2.dart';
 import 'package:random_name_picker/data/user_file.dart';
 import 'package:random_name_picker/components/constants.dart';
 
